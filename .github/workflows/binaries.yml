@@ -23,7 +23,7 @@ jobs:
         emacs-version:
         - 28.1
         targets:
-        - linux-arm64
+        #- linux-arm64
         - linux-x64
 
     steps:
@@ -54,7 +54,7 @@ jobs:
         emacs-version:
         - 28.1
         targets:
-        - macos-arm64
+        #- macos-arm64
         - macos-x64
 
     steps:
@@ -85,7 +85,7 @@ jobs:
         emacs-version:
         - 28.1
         targets:
-        - win-arm64
+        #- win-arm64
         - win-x64
 
     steps:
