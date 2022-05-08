@@ -39,13 +39,13 @@ jobs:
         tar -xvf ${{ matrix.targets }}.tar -C ./bin/
 
     - name: Prepare Eask (Unix)
-      if: matrix.os == 'ubuntu-latest' || matrix.os == 'macos-latest'
+      if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
         chmod -R 777 ./
         .github/scripts/setup-eask
 
     - name: Prepare Eask (Windows)
-      if: matrix.os == 'windows-latest'
+      if: runner.os == 'Windows'
       run: .github/scripts/setup-eask.ps1    
 
     - name: Test
