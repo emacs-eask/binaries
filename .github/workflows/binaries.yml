@@ -23,6 +23,8 @@ jobs:
         targets:
         - linux-arm64
         - linux-x64
+        emacs-version:
+        - 28.1
 
     steps:
     - uses: jcs090218/setup-emacs@master
