@@ -20,11 +20,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        emacs-version:
+        - 28.1
         targets:
         - linux-arm64
         - linux-x64
-        emacs-version:
-        - 28.1
 
     steps:
     - uses: jcs090218/setup-emacs@master
@@ -39,13 +39,68 @@ jobs:
         tar -xvf ${{ matrix.targets }}.tar -C ./bin/
 
     - name: Prepare Eask (Unix)
-      if: runner.os == 'Linux' || runner.os == 'macOS'
       run: |
         chmod -R 777 ./
         .github/scripts/setup-eask
 
+    - name: Test
+      run: eask info
+
+  macos:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        emacs-version:
+        - 28.1
+        targets:
+        - macos-arm64
+        - macos-x64
+
+    steps:
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs-version }}
+
+    - uses: actions/checkout@v3
+
+    - name: Extract zipped
+      run: |
+        mkdir bin
+        tar -xvf ${{ matrix.targets }}.tar -C ./bin/
+
+    - name: Prepare Eask (Unix)
+      run: |
+        chmod -R 777 ./
+        .github/scripts/setup-eask
+
+    - name: Test
+      run: eask info
+
+  windows:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        emacs-version:
+        - 28.1
+        targets:
+        - win-arm64
+        - win-x64
+
+    steps:
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs-version }}
+
+    - uses: actions/checkout@v3
+
+    - name: Extract zipped
+      run: |
+        mkdir bin
+        tar -xvf ${{ matrix.targets }}.tar -C ./bin/
+
     - name: Prepare Eask (Windows)
-      if: runner.os == 'Windows'
       run: .github/scripts/setup-eask.ps1    
 
     - name: Test
