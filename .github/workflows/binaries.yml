@@ -22,13 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
-      matrix:
-        emacs-version:
-        - ${{ env.EMACS_VER }}
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: ${{ matrix.emacs-version }}
+        version: ${{ env.EMACS_VER }}
 
     - uses: actions/checkout@v3
 
@@ -53,8 +50,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        emacs-version:
-        - ${{ env.EMACS_VER }}
         targets:
         #- linux-arm64
         - linux-x64
@@ -62,7 +57,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: ${{ matrix.emacs-version }}
+        version: ${{ env.EMACS_VER }}
 
     - uses: actions/checkout@v3
 
@@ -84,8 +79,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        emacs-version:
-        - ${{ env.EMACS_VER }}
         targets:
         #- macos-arm64
         - macos-x64
@@ -93,7 +86,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: ${{ matrix.emacs-version }}
+        version: ${{ env.EMACS_VER }}
 
     - uses: actions/checkout@v3
 
@@ -115,8 +108,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        emacs-version:
-        - ${{ env.EMACS_VER }}
         targets:
         #- win-arm64
         - win-x64
@@ -124,7 +115,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: ${{ matrix.emacs-version }}
+        version: ${{ env.EMACS_VER }}
 
     - uses: actions/checkout@v3
 
