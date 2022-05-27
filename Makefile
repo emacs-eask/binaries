@@ -7,4 +7,4 @@ EASK ?= eask
 
 generate_badges_system:
 	@echo "Generating system badges.."
-	@$(EASK) load "./_scripts/generate-badges-system.el"
+	@$(EASK) load "./bin/generate-badges-system.el"

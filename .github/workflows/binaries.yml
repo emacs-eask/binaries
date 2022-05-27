@@ -63,7 +63,6 @@ jobs:
 
     - name: Extract zipped
       run: |
-        mkdir bin
         tar -xvf ${{ matrix.targets }}.tar -C ./bin/
 
     - name: Prepare Eask (Unix)
@@ -92,7 +91,6 @@ jobs:
 
     - name: Extract zipped
       run: |
-        mkdir bin
         tar -xvf ${{ matrix.targets }}.tar -C ./bin/
 
     - name: Prepare Eask (Unix)
@@ -121,7 +119,6 @@ jobs:
 
     - name: Extract zipped
       run: |
-        mkdir bin
         tar -xvf ${{ matrix.targets }}.tar -C ./bin/
 
     - name: Prepare Eask (Windows)
