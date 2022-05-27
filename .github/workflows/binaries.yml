@@ -46,6 +46,26 @@ jobs:
     - name: Test
       run: eask info
 
+###############################################################################
+
+    - name: Set git config
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Generate SVG badges (system)
+      run: make generate_badges_system
+
+    - name: Push generated badges (system)
+      continue-on-error: true
+      run: |
+        git pull
+        git add .
+        git commit -m "Update SVG badges - system"
+        git push
+
+###############################################################################
+
   macos:
     runs-on: macos-latest
     strategy:
