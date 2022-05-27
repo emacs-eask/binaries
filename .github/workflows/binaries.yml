@@ -14,14 +14,47 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  EMACS_VER: 28.1
+
 jobs:
+  badge:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        emacs-version:
+        - ${{ env.EMACS_VER }}
+    steps:
+    - uses: jcs090218/setup-emacs@master
+      with:
+        version: ${{ matrix.emacs-version }}
+
+    - uses: actions/checkout@v3
+
+    - name: Set git config
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+
+    - name: Generate SVG badges (system)
+      run: make generate_badges_system
+
+    - name: Push generated badges (system)
+      continue-on-error: true
+      run: |
+        git pull
+        git add .
+        git commit -m "Update SVG badges - system"
+        git push
+
   linux:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
         emacs-version:
-        - 28.1
+        - ${{ env.EMACS_VER }}
         targets:
         #- linux-arm64
         - linux-x64
@@ -46,33 +79,13 @@ jobs:
     - name: Test
       run: eask info
 
-###############################################################################
-
-    - name: Set git config
-      run: |
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-
-    - name: Generate SVG badges (system)
-      run: make generate_badges_system
-
-    - name: Push generated badges (system)
-      continue-on-error: true
-      run: |
-        git pull
-        git add .
-        git commit -m "Update SVG badges - system"
-        git push
-
-###############################################################################
-
   macos:
     runs-on: macos-latest
     strategy:
       fail-fast: false
       matrix:
         emacs-version:
-        - 28.1
+        - ${{ env.EMACS_VER }}
         targets:
         #- macos-arm64
         - macos-x64
@@ -103,7 +116,7 @@ jobs:
       fail-fast: false
       matrix:
         emacs-version:
-        - 28.1
+        - ${{ env.EMACS_VER }}
         targets:
         #- win-arm64
         - win-x64
