@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  EMACS_VER: 28.1
+  EMACS_VER: 28.2
 
 jobs:
   badge:
