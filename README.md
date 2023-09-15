@@ -6,7 +6,7 @@
 [![Linux](https://img.shields.io/badge/-Linux-fcc624?logo=linux&style=flat&logoColor=black)](#)
 
 # binaries
-> Store all eask binaries
+> Store all Eask CLI binaries
 
 ## 🧪 Testing
 
