@@ -14,9 +14,6 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-env:
-  EMACS_VER: 29.1
-
 jobs:
   badge:
     runs-on: ubuntu-latest
@@ -25,7 +22,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: ${{ env.EMACS_VER }}
+        version: ${{ vars.EMACS_VER }}
 
     - uses: actions/checkout@v4
 
