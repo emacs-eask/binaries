@@ -64,7 +64,7 @@ jobs:
 
     - name: Extract zipped
       run: |
-        unzip ${{ matrix.targets }}.zip -d ./bin/
+        tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
 
     - name: Prepare Eask (Unix)
       run: |
@@ -92,7 +92,7 @@ jobs:
 
     - name: Extract zipped
       run: |
-        unzip ${{ matrix.targets }}.zip -d ./bin/
+        tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
 
     - name: Prepare Eask (Unix)
       run: |
