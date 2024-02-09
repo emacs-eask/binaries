@@ -62,7 +62,7 @@ jobs:
 
     - uses: actions/checkout@v4
 
-    - name: Extract zipped
+    - name: Extract tar
       run: |
         tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
 
@@ -90,7 +90,7 @@ jobs:
 
     - uses: actions/checkout@v4
 
-    - name: Extract zipped
+    - name: Extract tar
       run: |
         tar -xvzf ${{ matrix.targets }}.tar.gz -C ./bin/
 
@@ -118,7 +118,7 @@ jobs:
 
     - uses: actions/checkout@v4
 
-    - name: Extract zipped
+    - name: Extract zip
       run: |
         unzip ${{ matrix.targets }}.zip -d ./bin/
 
