@@ -14,6 +14,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  emacs-version: 29.3
+
 jobs:
   badge:
     runs-on: ubuntu-latest
@@ -22,7 +25,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: 29.2
+        version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v4
 
@@ -58,8 +61,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: 29.2
-
+        version: ${{ env.emacs-version }}
     - uses: actions/checkout@v4
 
     - name: Extract tar
@@ -86,7 +88,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: 29.2
+        version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v4
 
@@ -114,7 +116,7 @@ jobs:
     steps:
     - uses: jcs090218/setup-emacs@master
       with:
-        version: 29.2
+        version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v4
 
