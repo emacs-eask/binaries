@@ -62,6 +62,7 @@ jobs:
     - uses: jcs090218/setup-emacs@master
       with:
         version: ${{ env.emacs-version }}
+
     - uses: actions/checkout@v4
 
     - name: Extract tar
