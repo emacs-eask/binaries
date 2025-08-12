@@ -27,7 +27,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - uses: emacs-eask/setup-eask@master
       with:
@@ -63,7 +63,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract tar
       run: |
@@ -91,7 +91,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract tar
       run: |
@@ -119,7 +119,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
 
     - name: Extract zip
       run: |
