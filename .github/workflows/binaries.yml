@@ -121,9 +121,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - os: windows-2022
+        - os: windows-11
           target: win-x64
-        - os: windows-2022-arm
+        - os: windows-11-arm
           target: win-arm64
 
     steps:
