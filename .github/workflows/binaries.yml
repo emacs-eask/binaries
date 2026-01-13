@@ -28,6 +28,9 @@ jobs:
         version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+        fetch-depth: 1
 
     - uses: emacs-eask/setup-eask@master
       with:
