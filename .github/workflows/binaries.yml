@@ -66,6 +66,9 @@ jobs:
         version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+        fetch-depth: 1
 
     - name: Extract tar
       run: |
@@ -96,6 +99,9 @@ jobs:
         version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+        fetch-depth: 1
 
     - name: Extract tar
       run: |
@@ -118,7 +124,7 @@ jobs:
         - os: windows-latest
           target: win-x64
         - os: windows-latest
-          target: windows-arm64
+          target: win-arm64
 
     steps:
     - uses: jcs090218/setup-emacs@master
@@ -126,6 +132,9 @@ jobs:
         version: ${{ env.emacs-version }}
 
     - uses: actions/checkout@v6
+      with:
+        persist-credentials: false
+        fetch-depth: 1
 
     - name: Extract zip
       run: |
