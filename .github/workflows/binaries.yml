@@ -85,9 +85,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - os: macos-latest
+        - os: macos-latest-intel
           target: macos-x64
-        - os: macos-latest-arm
+        - os: macos-latest
           target: macos-arm64
 
     steps:
