@@ -50,13 +50,15 @@ jobs:
         git push
 
   linux:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        targets:
-        #- linux-arm64
-        - linux-x64
+        include:
+          - os: ubuntu-latest
+            targets: linux-x64
+          - os: ubuntu-latest-arm
+            targets: linux-arm64
 
     steps:
     - uses: jcs090218/setup-emacs@master
