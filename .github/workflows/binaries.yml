@@ -27,7 +27,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
@@ -68,7 +68,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
@@ -101,7 +101,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
@@ -134,7 +134,7 @@ jobs:
       with:
         version: ${{ env.emacs-version }}
 
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         persist-credentials: false
         fetch-depth: 1
